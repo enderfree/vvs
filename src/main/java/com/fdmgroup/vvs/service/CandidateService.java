@@ -20,7 +20,7 @@ public class CandidateService {
 		super();
 		this.candidateRepository = candidateRepository;
 	}
-	public List<Candidate> retrieveAllProducts() {
+	public List<Candidate> retrieveAllCandidats() {
 		return candidateRepository.findAll();
 	}
 
