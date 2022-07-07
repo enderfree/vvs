@@ -3,3 +3,19 @@ body{
     background: pink;
     color: white;
 }
+
+.btn-all{
+    background: rgba(203,39,124,0.8);
+    color: white;
+    width: 30%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding:10px;
+    border-radius: 3rem;
+}
+
+.btn-all:hover{
+    background: rgba(122,99,144,0.677);
+    cursor: pointer;
+}
