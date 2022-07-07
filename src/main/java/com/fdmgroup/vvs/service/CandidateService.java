@@ -31,10 +31,6 @@ public class CandidateService {
 		}
 		return candidate.get();
 	}
-	public Candidate retrieveCandidateByCandidatePosition(CandidatePosition candidatePosition) {
-		return null;
-		
-	}
 	public Candidate addCandidate(Candidate candidate) {
 		return candidateRepository.save(candidate);
 	}
