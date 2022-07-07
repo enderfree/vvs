@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Virtual Voting Registration</h1>
+
     <form class="register-content" #registerForm = "ngForm" (ngSubmit)="register()">
         <label for="first-name">First Name:</label>
         <input type="text" [(ngModel)]="firstName" name="first-name" req><br>
@@ -23,6 +24,7 @@
         
         <div *ngIf="!passwordNgModel.errors?.['badPassword'] && !fdmEmailNgModel.errors?.['notFdmEmail']">
         <input class="btn-all" type="submit" value="Login">
+
         </div>
             
     </form>

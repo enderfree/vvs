@@ -1,0 +1,9 @@
+.home-container{
+    width:100%;
+}
+
+.home-content{
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
