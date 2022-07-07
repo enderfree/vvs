@@ -24,8 +24,8 @@ public class UserService {
 		return userRepository.save(user);
 	}
 	
-	public void deleteUser(User user) {
-		userRepository.delete(user);
+	public void deleteUser(int id) {
+		userRepository.delete(findUserById(id));
 	}
 	
 	public User updateUser(User user) {
@@ -81,6 +81,8 @@ public class UserService {
 	}
 	
 	public boolean validateLogin(User user) {
+		if(findUserByUsername(user.getUsername()).getPassword() == user.getPassword()) return true;
 		
+		return false;
 	}
 }
