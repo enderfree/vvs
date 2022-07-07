@@ -16,11 +16,17 @@
 
 input{
     width: 60%;
-    margin: auto;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 3px;
+    outline: none;
+    border:none;
+    background: rgba(76,43,60,0.8);
+    box-shadow: 2px 3px 30px 2px rgba(125,125,125,0.4);
 }
 
 .btn-all{
-    background: rgba(77,25,325,0.955);
+    background: rgba(203,39,124,0.8);
     color: white;
     width: 30%;
     margin: auto;
@@ -32,4 +38,5 @@ input{
 
 .btn-all:hover{
     background: rgba(122,99,144,0.677);
+    cursor: pointer;
 }
