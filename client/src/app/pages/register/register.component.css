@@ -9,8 +9,9 @@
 
 .register-content{
     width: 70%;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
+    text-align: center;
     justify-content: center;
 }
 
@@ -23,6 +24,10 @@ input{
     border:none;
     background: rgba(76,43,60,0.8);
     box-shadow: 2px 3px 30px 2px rgba(125,125,125,0.4);
+}
+
+input, label{
+    margin: 5px;
 }
 
 .btn-all{
