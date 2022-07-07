@@ -14,4 +14,24 @@ public class VoteController {
 		super();
 		this.voteService = voteService;
 	}
+
+	public List<Vote> getAllVotes() {
+		return voteService.getVotes();
+	}
+
+	public Vote getVote(int id) {
+		return voteService.getVote(id);
+	}
+
+	public void createVote(Vote incomingVote) {
+		return voteService.createVote(incomingVote)
+	}
+
+	public void deleteVote(int id) {
+		voteService.deleteVote(id);
+	}
+
+	public List<Vote> getVotesById(int candidateId) {
+		voteService.getVoteById(candidateId);
+	}
 }

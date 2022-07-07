@@ -15,4 +15,23 @@ public class VoteService {
 		this.voteRepository = voteRepository;
 	}
 	
+	public List<Vote> getVotes() {
+		return voteRepository.findAll();
+	}
+
+	public Vote getVote(int id) {
+		return voteRepository.findById(id);
+	}
+
+	public void createVote(Vote incomingVote) {
+		voteRepository.save(incomingVote);
+	}
+
+	public void deleteVote(int id) {
+		voteRepository.deleteById(id);
+	}
+
+	public List<Vote> getVotesByCandidateId(int candidateId) {
+		voteRepository.getVotesByCandidateId(candidateId);
+	}
 }
