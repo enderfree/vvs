@@ -1,8 +1,11 @@
 package com.fdmgroup.vvs.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fdmgroup.vvs.model.Vote;
 import com.fdmgroup.vvs.repository.VoteRepository;
 
 @Service
@@ -20,7 +23,7 @@ public class VoteService {
 	}
 
 	public Vote getVote(int id) {
-		return voteRepository.findById(id);
+		return voteRepository.findById(id).get();
 	}
 
 	public void createVote(Vote incomingVote) {
@@ -32,6 +35,6 @@ public class VoteService {
 	}
 
 	public List<Vote> getVotesByCandidateId(int candidateId) {
-		voteRepository.getVotesByCandidateId(candidateId);
+		return voteRepository.findVoteByCandidateId(candidateId);
 	}
 }

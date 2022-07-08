@@ -8,8 +8,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fdmgroup.faizansalmanspringprojectemployeeapi.exception.EmployeeNotFoundException;
-import com.fdmgroup.faizansalmanspringprojectemployeeapi.model.Employee;
 import com.fdmgroup.vvs.model.Poll;
 import com.fdmgroup.vvs.repository.PollRepository;
 
@@ -28,12 +26,12 @@ public class PollService {
 		return pollRepository.findAll();
 	}
 
-	public Poll retrievePoll(long id) {
+	public Poll retrievePoll(int id) {
 		
 		Optional<Poll> optPoll = pollRepository.findById(id);
 		
 		if(!optPoll.isPresent()) {
-//			throw new EmployeeNotFoundException("Poll with id " + id + " not found");
+			throw new NullPointerException("Poll with id " + id + " not found");
 		} else {
 			return optPoll.get();
 		}
@@ -45,13 +43,12 @@ public class PollService {
 		return pollRepository.save(poll);
 	}
 
-	public void updatePoll(long id, Poll poll) {
+	public void updatePoll(Poll poll) {
 		// TODO Auto-generated method stub
-		pollRepository.findById(id);
 		pollRepository.save(poll);
 	}
 
-	public void deletePollById(long id) {
+	public void deletePollById(int id) {
 		// TODO Auto-generated method stub
 		pollRepository.deleteById(id);
 	}
