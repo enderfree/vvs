@@ -24,8 +24,7 @@ import { VoterCardComponent } from './components/voter-card/voter-card.component
     HomeComponent,
 
     FdmEmailDirective,
-    PasswordDirective
-
+    PasswordDirective,
     VoterCardComponent
 
   ],
