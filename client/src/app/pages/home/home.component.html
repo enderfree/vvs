@@ -1,9 +1,15 @@
 <div class="home-container">
     <div class="home-content">
-        <app-voter-card></app-voter-card>
-        <app-voter-card></app-voter-card>
-        <app-voter-card></app-voter-card>
-        <app-voter-card></app-voter-card>
-        <app-voter-card></app-voter-card>
+
+        <!-- if not logged in -->
+        <a routerLink="/login">Login</a>
+        <p>If you're not singed up yet</p>
+        <a routerLink="/register">Register</a>
+
+        <!-- if logged in -->
+        <h2>Welcome (your name here)</h2>
+
+        <!-- if statement to see if logged in user is guest, voter, admin, or owner -->
+        <app-owner-page></app-owner-page>
     </div>
 </div>

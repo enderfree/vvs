@@ -4,6 +4,6 @@
 
 .home-content{
     width: 70%;
-    display: grid;
+    display: block;
     grid-template-columns: repeat(3, 1fr);
 }

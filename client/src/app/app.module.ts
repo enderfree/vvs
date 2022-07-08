@@ -14,6 +14,10 @@ import { FdmEmailDirective } from './fdm-email.directive';
 import { PasswordDirective } from './password.directive';
 
 import { VoterCardComponent } from './components/voter-card/voter-card.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { VoterPageComponent } from './components/voter-page/voter-page.component';
+import { OwnerPageComponent } from './components/owner-page/owner-page.component';
+import { GuestPageComponent } from './components/guest-page/guest-page.component';
 
 
 @NgModule({
@@ -24,9 +28,13 @@ import { VoterCardComponent } from './components/voter-card/voter-card.component
     HomeComponent,
 
     FdmEmailDirective,
-    PasswordDirective
+    PasswordDirective,
 
-    VoterCardComponent
+    VoterCardComponent,
+     AdminPageComponent,
+     VoterPageComponent,
+     OwnerPageComponent,
+     GuestPageComponent
 
   ],
   imports: [

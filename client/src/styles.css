@@ -4,6 +4,28 @@ body{
     color: white;
 }
 
+header {
+    padding: 20px;
+}
+
+h1 {
+    display: inline;
+}
+
+nav {
+    float: right;
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 15px;
+}
+
 .btn-all{
     background: rgba(203,39,124,0.8);
     color: white;
