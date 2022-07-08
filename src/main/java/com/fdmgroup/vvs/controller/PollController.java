@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.fdmgroup.vvs.model.Poll;
+import com.fdmgroup.vvs.model.User;
 import com.fdmgroup.vvs.service.PollService;
 
 @RestController
@@ -31,15 +32,20 @@ public class PollController {
 		this.pollService = pollService;
 	}
 	
-	@GetMapping
-	public List<Poll> getPolls(){
-		return pollService.retrievePolls();
+	@RequestMapping("/")
+	public ResponseEntity<List<Poll>> getAll(){
+		return ResponseEntity.ok(pollService.retrievePolls());
 	}
 	
-//	@GetMapping("/{id}")
-//	public Poll getPoll(@Valid@PathVariable long id) {
-//		return pollService.retrievePoll(id);
-//	}
+	@RequestMapping("/id/{id}")
+	public ResponseEntity<Poll> findById(@PathVariable int id){
+		return ResponseEntity.ok(pollService.retrievePoll(id));
+	}
+	
+	@RequestMapping("/pollName/{pollName}")
+	public ResponseEntity<Poll> findByPollName(@PathVariable String pollName){
+		return ResponseEntity.ok(pollService.findUserByPollName(pollName));
+	}
 	
 	@PostMapping
 	public ResponseEntity<Poll> createPoll(@Valid@RequestBody Poll poll){
@@ -52,13 +58,13 @@ public class PollController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Poll> updatePoll(@PathVariable long id, @Valid@RequestBody Poll poll){
-//		pollService.updatePoll(id, poll);
+	public ResponseEntity<Poll> updatePoll(@Valid@RequestBody Poll poll){
+		pollService.updatePoll(poll);
 		return ResponseEntity.ok().build();
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deletePoll(@PathVariable long id) {
-//		pollService.deletePollById(id);
+	public void deletePoll(@PathVariable int id) {
+		pollService.deletePollById(id);
 	}
 }
