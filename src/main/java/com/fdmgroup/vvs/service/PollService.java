@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fdmgroup.vvs.model.Poll;
+import com.fdmgroup.vvs.model.User;
 import com.fdmgroup.vvs.repository.PollRepository;
 
 @Service
@@ -36,6 +37,14 @@ public class PollService {
 			return optPoll.get();
 		}
 		
+	}
+	
+	public Poll findUserByPollName(String pollName) {
+		Optional<Poll> poll = pollRepository.findByPollName(pollName);
+		
+		if(poll.isPresent()) return poll.get();
+		
+		throw new NullPointerException("User not found.");
 	}
 
 	public Poll createPoll(@Valid Poll poll) {
