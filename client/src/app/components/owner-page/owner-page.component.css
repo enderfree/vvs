@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  
+}
+
+th, td {
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #7d70ba;
+}
+
+button {
+  background-color: #7e5a9b;
+  
+  border-radius: 10px;
+  color: white;
+}
