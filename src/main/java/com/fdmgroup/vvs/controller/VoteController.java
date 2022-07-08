@@ -1,8 +1,11 @@
 package com.fdmgroup.vvs.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fdmgroup.vvs.model.Vote;
 import com.fdmgroup.vvs.service.VoteService;
 
 @RestController
@@ -24,14 +27,14 @@ public class VoteController {
 	}
 
 	public void createVote(Vote incomingVote) {
-		return voteService.createVote(incomingVote)
+//		return voteService.createVote(incomingVote)
 	}
 
 	public void deleteVote(int id) {
 		voteService.deleteVote(id);
 	}
 
-	public List<Vote> getVotesById(int candidateId) {
-		voteService.getVoteById(candidateId);
-	}
+//	public List<Vote> getVotesById(int candidateId) {
+//		voteService.getVoteById(candidateId);
+//	}
 }

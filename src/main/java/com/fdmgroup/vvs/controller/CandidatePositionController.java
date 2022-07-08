@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fdmgroup.vvs.service.CandidatePositionService;
 
-@RestController
+//@RestController
 public class CandidatePositionController {
 	private CandidatePositionService candidatePositionService;
 

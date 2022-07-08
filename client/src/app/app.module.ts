@@ -36,6 +36,7 @@ import { GuestPageComponent } from './components/guest-page/guest-page.component
      OwnerPageComponent,
      GuestPageComponent
 
+
   ],
   imports: [
     BrowserModule,

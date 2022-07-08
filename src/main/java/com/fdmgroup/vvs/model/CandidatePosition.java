@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table
+//@Entity
+//@Table
 public class CandidatePosition {
 	@Id
 	@SequenceGenerator(name = "CANDIDATEPOSITION_SEQ", sequenceName = "CANDIDATEPOSITION_SEQ", allocationSize = 1)

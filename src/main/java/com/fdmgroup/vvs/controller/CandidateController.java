@@ -18,44 +18,44 @@ import com.fdmgroup.vvs.model.Candidate;
 import com.fdmgroup.vvs.service.CandidateNotFoundException;
 import com.fdmgroup.vvs.service.CandidateService;
 
-@RestController
+//@RestController
 public class CandidateController {
-	private CandidateService candidateService;
-
-	@Autowired
-	public CandidateController(CandidateService candidateService) {
-		super();
-		this.candidateService = candidateService;
-	}
-	@GetMapping
-	public ResponseEntity<List<Candidate>> getCandidats(){
-		List<Candidate> candidates = candidateService.retrieveAllCandidats();
-		return ResponseEntity.ok(candidates);
-	}
-	@GetMapping("/{id}")
-	public ResponseEntity<Candidate> getCandidatebyId(@PathVariable("id") int candidatId ) throws CandidateNotFoundException{
-		Candidate candidate = candidateService.retrieveCandidateById(candidatId);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
-		return ResponseEntity.created(location).body(candidate);
-	}
-	
-	@PostMapping
-	public ResponseEntity<Candidate> addCandidate(@RequestBody Candidate candidate){
-		Candidate newCandidate = candidateService.addCandidate(candidate);
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCandidate.getCandidateId()).toUri();
-		
-		return ResponseEntity.created(location).body(newCandidate);
-	}
-	
-	@PutMapping("/{id}")
-	public ResponseEntity<Candidate> updateCandidate(@PathVariable("id") int candidateId, @RequestBody Candidate candidate){
-		Candidate updateCandidate = candidateService.updateCandidate(candidate);
-		return ResponseEntity.ok().build();
-	}
-	
-	@DeleteMapping("/{id}")
-	public void deleteCandidate(@PathVariable("id") int candidateId)
-	{
-		candidateService.deleteCandidate(candidateId);
-	}
+//	private CandidateService candidateService;
+//
+//	@Autowired
+//	public CandidateController(CandidateService candidateService) {
+//		super();
+//		this.candidateService = candidateService;
+//	}
+//	@GetMapping
+//	public ResponseEntity<List<Candidate>> getCandidats(){
+//		List<Candidate> candidates = candidateService.retrieveAllCandidats();
+//		return ResponseEntity.ok(candidates);
+//	}
+//	@GetMapping("/{id}")
+//	public ResponseEntity<Candidate> getCandidatebyId(@PathVariable("id") int candidatId ) throws CandidateNotFoundException{
+//		Candidate candidate = candidateService.retrieveCandidateById(candidatId);
+//		URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+//		return ResponseEntity.created(location).body(candidate);
+//	}
+//	
+//	@PostMapping
+//	public ResponseEntity<Candidate> addCandidate(@RequestBody Candidate candidate){
+//		Candidate newCandidate = candidateService.addCandidate(candidate);
+//		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCandidate.getCandidateId()).toUri();
+//		
+//		return ResponseEntity.created(location).body(newCandidate);
+//	}
+//	
+//	@PutMapping("/{id}")
+//	public ResponseEntity<Candidate> updateCandidate(@PathVariable("id") int candidateId, @RequestBody Candidate candidate){
+//		Candidate updateCandidate = candidateService.updateCandidate(candidate);
+//		return ResponseEntity.ok().build();
+//	}
+//	
+//	@DeleteMapping("/{id}")
+//	public void deleteCandidate(@PathVariable("id") int candidateId)
+//	{
+//		candidateService.deleteCandidate(candidateId);
+//	}
 }
