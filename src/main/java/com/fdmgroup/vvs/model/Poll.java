@@ -3,6 +3,7 @@ package com.fdmgroup.vvs.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,35 +19,37 @@ public class Poll {
 	@Id
 	@SequenceGenerator(name = "POLL_SEQ", sequenceName = "POLL_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "POLL_SEQ")
+	@Column(name = "POLL_ID")
 	private int pollId;
 	private String pollName;
 	private String category;
 	private Date publishDate;
 	private String poll;
-	@OneToMany
-	@JoinColumn(referencedColumnName = "candidateId")
-	private List<Candidate> candidates;
+//	@OneToMany(mappedBy = "poll")
+//	private List<Candidate> candidates;
 	
-	public Poll(int pollId, String pollName, String category, Date publishDate, String poll,
-			List<Candidate> candidates) {
+	@OneToMany(mappedBy = "poll")
+	private List<Vote> voters;
+	
+	public Poll(int pollId, String pollName, String category, Date publishDate, String poll) {
 		super();
 		this.pollId = pollId;
 		this.pollName = pollName;
 		this.category = category;
 		this.publishDate = publishDate;
 		this.poll = poll;
-		this.candidates = candidates;
+//		this.candidates = candidates;
 	}
 
-	public Poll(int pollId, String pollName, String category, String poll,
-			List<Candidate> candidates) {
+	public Poll(int pollId, String pollName, String category, String poll
+			) {
 		super();
 		this.pollId = pollId;
 		this.pollName = pollName;
 		this.category = category;
 		this.publishDate = new Date();
 		this.poll = poll;
-		this.candidates = candidates;
+//		this.candidates = candidates;
 	}
 
 	/**
@@ -113,26 +116,26 @@ public class Poll {
 	/**
 	 * @return the candidates
 	 */
-	public List<Candidate> getCandidates() {
-		return candidates;
-	}
+//	public List<Candidate> getCandidates() {
+//		return candidates;
+//	}
 	/**
 	 * @param candidates the candidates to set
 	 */
-	public void setCandidates(List<Candidate> candidates) {
-		this.candidates = candidates;
-	}
+//	public void setCandidates(List<Candidate> candidates) {
+//		this.candidates = candidates;
+//	}
 	@Override
 	public String toString() {
-		return "Poll [pollId=" + pollId + ", pollName=" + pollName + ", poll=" + poll + ", candidates=" + candidates
+		return "Poll [pollId=" + pollId + ", pollName=" + pollName + ", poll=" + poll
 				+ "]";
 	}
-	public Poll(int pollId, String pollName, String poll, List<Candidate> candidates) {
+	public Poll(int pollId, String pollName, String poll) {
 		super();
 		this.pollId = pollId;
 		this.pollName = pollName;
 		this.poll = poll;
-		this.candidates = candidates;
+//		this.candidates = candidates;
 	}
 
 	public Poll() {

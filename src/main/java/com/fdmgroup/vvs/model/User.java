@@ -14,6 +14,7 @@ public class User {
 	@Id
 	@SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
+	@Column(name = "USER_ID")
 	private int userId;
 	private String firstName;
 	private String lastName;
@@ -23,6 +24,22 @@ public class User {
 	private String username;
 	private String password;
 	private Role role;
+	private String candidatePosition;
+	
+	
+	
+	/**
+	 * @return the candidatePosition
+	 */
+	public String getCandidatePosition() {
+		return candidatePosition;
+	}
+	/**
+	 * @param candidatePosition the candidatePosition to set
+	 */
+	public void setCandidatePosition(String candidatePosition) {
+		this.candidatePosition = candidatePosition;
+	}
 	/**
 	 * @return the userId
 	 */
@@ -113,7 +130,7 @@ public class User {
 				+ ", username=" + username + ", password=" + password + ", role=" + role + "]";
 	}
 	public User(int userId, String firstName, String lastName, String email, String username, String password,
-			Role role) {
+			Role role, String candidatePosition) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -122,6 +139,7 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.role = role;
+		this.candidatePosition = candidatePosition;
 	}
 	public User() {
 		super();

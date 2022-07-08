@@ -10,8 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table
+//@Entity
+//@Table
 public class Candidate {
 	@Id
 	@SequenceGenerator(name = "CANDIDATE_SEQ", sequenceName = "CANDIDATE_SEQ", allocationSize = 1)

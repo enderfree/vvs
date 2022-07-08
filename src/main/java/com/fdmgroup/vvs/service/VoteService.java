@@ -34,7 +34,7 @@ public class VoteService {
 		voteRepository.deleteById(id);
 	}
 
-	public List<Vote> getVotesByCandidateId(int candidateId) {
-		return voteRepository.findVoteByCandidateId(candidateId);
-	}
+//	public List<Vote> getVotesByCandidateId(int candidateId) {
+//		return voteRepository.findVoteByCandidateId(candidateId);
+//	}
 }

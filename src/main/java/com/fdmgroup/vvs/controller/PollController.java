@@ -36,10 +36,10 @@ public class PollController {
 		return pollService.retrievePolls();
 	}
 	
-	@GetMapping("/{id}")
-	public Poll getPoll(@Valid@PathVariable long id) {
-		return pollService.retrievePoll(id);
-	}
+//	@GetMapping("/{id}")
+//	public Poll getPoll(@Valid@PathVariable long id) {
+//		return pollService.retrievePoll(id);
+//	}
 	
 	@PostMapping
 	public ResponseEntity<Poll> createPoll(@Valid@RequestBody Poll poll){
@@ -53,12 +53,12 @@ public class PollController {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Poll> updatePoll(@PathVariable long id, @Valid@RequestBody Poll poll){
-		pollService.updatePoll(id, poll);
+//		pollService.updatePoll(id, poll);
 		return ResponseEntity.ok().build();
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deletePoll(@PathVariable long id) {
-		pollService.deletePollById(id);
+//		pollService.deletePollById(id);
 	}
 }
