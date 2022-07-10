@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -20,15 +20,19 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.httpClient.post("http://", 
+    
+
+    this.httpClient.post("http://localhost:8080/user/add", 
     {
       "firstName": this.firstName,
       "lastName": this.lastName,
       "email": this.email, 
       "username": this.username, 
-      "password": this.password
+      "password": this.password,
+      "role": "guest"
     })
-    .subscribe(data=> {console.log(data)});
+    .subscribe(data=> {console.log(data)}
+    );
   }
 
 }

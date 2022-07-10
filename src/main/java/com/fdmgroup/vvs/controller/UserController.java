@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.fdmgroup.vvs.model.Role;
 import com.fdmgroup.vvs.model.User;
 import com.fdmgroup.vvs.service.UserService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -69,6 +71,7 @@ public class UserController {
 		return ResponseEntity.ok(userService.findUserByEmail(email));
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/username/{username}")
 	public ResponseEntity<User> findByUsername(@PathVariable String username){
 		return ResponseEntity.ok(userService.findUserByUsername(username));
@@ -79,8 +82,8 @@ public class UserController {
 		return ResponseEntity.ok(userService.findUserByRole(role));
 	}
 	
-	@RequestMapping("/loginValidation")
+	@PostMapping("/loginValidation")
 	public ResponseEntity<Boolean> loginValidation(@RequestBody User user){
-		return ResponseEntity.ok(userService.validateLogin(user));
+		return ResponseEntity.ok(userService.validateLogin(user.getUsername(), user.getPassword()));
 	}
 }

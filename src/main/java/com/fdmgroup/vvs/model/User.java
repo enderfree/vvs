@@ -16,11 +16,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="USERS")
 public class User {
 	@Id
-	@SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_ID_GENERATOR")
+	@SequenceGenerator(name="USER_ID_GENERATOR", sequenceName="USER_ID", allocationSize=1, initialValue=1)
 	@Column(name = "USER_ID")
 	private int userId;
 	private String firstName;

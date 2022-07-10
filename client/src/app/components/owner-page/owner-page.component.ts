@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-owner-page',
@@ -9,32 +11,12 @@ export class OwnerPageComponent implements OnInit {
 
   users: any;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.users = [{
-        "firstName": "Childish",
-        "lastName": "Gambino",
-        "email": "childg@fdmgroup.com", 
-        "username": "childg", 
-        "role": "voter"
-      },
-      {
-        "firstName": "Tai",
-        "lastName": "Verdes",
-        "email": "taiv@fdmgroup.com", 
-        "username": "taiv", 
-        "role": "guest"
-      },
-      {
-        "firstName": "Jen",
-        "lastName": "Evieve",
-        "email": "jene.com", 
-        "username": "jene", 
-        "role": "admin"
-      }
-    ]
-
+    this.httpClient.get('http://localhost:8080/user/').subscribe(data=>{
+      this.users = data;
+    })
 
   }
 
@@ -45,8 +27,20 @@ export class OwnerPageComponent implements OnInit {
     }
   }
 
-  makeAdmin(id: number) {
-    console.log(id);
+  makeAdmin(user: User) {
+    this.httpClient.put("http://localhost:8080/user/update", 
+    {
+      "userId": user.userId,
+      "firstName": user.firstName,
+      "lastName": user.lastName,
+      "email": user.email, 
+      "username": user.username, 
+      "password": user.password,
+      "role": "admin"
+    })
+    .subscribe(data=> {console.log(data)}
+    );
+    console.log(user);
   }
 
 }

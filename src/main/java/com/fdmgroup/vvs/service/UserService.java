@@ -80,8 +80,8 @@ public class UserService {
 		return userRepository.findByRole(role);
 	}
 	
-	public boolean validateLogin(User user) {
-		if(findUserByUsername(user.getUsername()).getPassword() == user.getPassword()) return true;
+	public boolean validateLogin(String username, String password) {
+		if(findUserByUsername(username).getPassword().equals(password)) return true;
 		
 		return false;
 	}
