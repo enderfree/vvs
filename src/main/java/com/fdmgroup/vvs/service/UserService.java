@@ -80,6 +80,10 @@ public class UserService {
 		return userRepository.findByRole(role);
 	}
 	
+	public void deleteUser(int id) {
+		userRepository.deleteById(id);
+	}
+	
 	public boolean validateLogin(User user) {
 		
 	}

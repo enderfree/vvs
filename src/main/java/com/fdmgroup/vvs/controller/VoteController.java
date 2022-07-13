@@ -24,7 +24,7 @@ public class VoteController {
 	}
 
 	public void createVote(Vote incomingVote) {
-		return voteService.createVote(incomingVote)
+		return voteService.createVote(incomingVote);
 	}
 
 	public void deleteVote(int id) {

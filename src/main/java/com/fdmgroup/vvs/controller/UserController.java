@@ -15,5 +15,9 @@ public class UserController {
 		this.userService = userService;
 	}
 	
+	public void deleteUser(int id) {
+		userService.deleteUser(id);
+	}
+	
 	
 }
