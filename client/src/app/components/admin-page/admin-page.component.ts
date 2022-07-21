@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-admin-page',
@@ -9,32 +12,13 @@ export class AdminPageComponent implements OnInit {
 
   users: any;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
 
-    this.users = [{
-      "firstName": "Childish",
-      "lastName": "Gambino",
-      "email": "childg@fdmgroup.com", 
-      "username": "childg", 
-      "role": "voter"
-    },
-    {
-      "firstName": "Tai",
-      "lastName": "Verdes",
-      "email": "taiv@fdmgroup.com", 
-      "username": "taiv", 
-      "role": "guest"
-    },
-    {
-      "firstName": "Jen",
-      "lastName": "Evieve",
-      "email": "jene.com", 
-      "username": "jene", 
-      "role": "admin"
-    }
-  ]
+    this.httpClient.get('http://localhost:8080/user/').subscribe(data=>{
+      this.users = data;
+    })
   }
 
   delete(id: number, firstName: string, lastName: string) {
@@ -45,8 +29,22 @@ export class AdminPageComponent implements OnInit {
 
 
 
-  makeVoter(id: number) {
-    console.log(id);
+  async makeVoter(user: User) {
+    await this.httpClient.put("http://localhost:8080/user/update", 
+    {
+      "userId": user.userId,
+      "firstName": user.firstName,
+      "lastName": user.lastName,
+      "email": user.email, 
+      "username": user.username, 
+      "password": user.password,
+      "role": "voter"
+    })
+    .subscribe(data=> {console.log(data)}
+    );
+
   }
 
 }
+
+

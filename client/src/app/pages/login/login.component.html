@@ -1,12 +1,11 @@
 <div class="container">
     <h1>Login</h1>
-    <div class="login-content">
+    <form class="login-content" #loginForm = "ngForm" (ngSubmit)="login()">
 
-        <input type="text" name="username" placeholder="Username">
-        <input type="password" name="password" placeholder="Password">
+        <input type="text" name="username" placeholder="Username" [(ngModel)]="username">
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="password">
 
-        <div class="btn btn-primary">
-            Login
-        </div>
-    </div>
+        <input class="btn-all" type="submit" value="Login">
+    </form>
+
 </div>

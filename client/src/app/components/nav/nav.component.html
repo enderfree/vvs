@@ -1,0 +1,13 @@
+<header>
+  <h1>Virtual Voting System</h1>
+  <nav>
+    <a routerLink="/home">Home</a>
+    <div *ngIf="!loggedIn">
+      <a routerLink="/login">Login</a>
+      <a routerLink="/register">Register</a>
+    </div>
+    <div *ngIf="loggedIn">
+      <button (click)="logout()">logout</button>
+    </div>
+  </nav>
+</header>

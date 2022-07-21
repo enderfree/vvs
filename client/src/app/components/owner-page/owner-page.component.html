@@ -21,7 +21,7 @@
           <button (click)="delete(user.id, user.firstName, user.lastName)">Delete</button>
         </td>
         <td>
-          <button *ngIf="user.role=='voter' || user.role=='guest'" (click)="makeAdmin(user.id)">Make Admin</button>
+          <button *ngIf="user.role=='voter' || user.role=='guest'" (click)="makeAdmin(user)">Make Admin</button>
         </td>
       </tr>
     </table>

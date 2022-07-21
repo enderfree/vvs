@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  
+  loggedIn: Boolean = false;
+  username: any;
+  user: any;
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
+
+    if(localStorage.getItem('logged_in_username')){
+      this.loggedIn = true;
+      this.username = localStorage.getItem('logged_in_username');
+    }
+    var url = "http://localhost:8080/user/username/" + this.username; 
+    this.httpClient.get(url).subscribe(data => (this.user = data));
+
+    
+
+  console.log(this.user);
   }
 
 }

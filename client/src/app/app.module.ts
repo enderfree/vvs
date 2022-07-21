@@ -18,6 +18,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { VoterPageComponent } from './components/voter-page/voter-page.component';
 import { OwnerPageComponent } from './components/owner-page/owner-page.component';
 import { GuestPageComponent } from './components/guest-page/guest-page.component';
+import { NavComponent } from './components/nav/nav.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { GuestPageComponent } from './components/guest-page/guest-page.component
      AdminPageComponent,
      VoterPageComponent,
      OwnerPageComponent,
-     GuestPageComponent
+     GuestPageComponent,
+     NavComponent
 
 
   ],

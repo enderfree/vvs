@@ -3,11 +3,14 @@ package com.fdmgroup.vvs.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fdmgroup.vvs.model.Vote;
 import com.fdmgroup.vvs.service.VoteService;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class VoteController {
 	private VoteService voteService;
